@@ -63,10 +63,10 @@ WSGI_APPLICATION = 'eaphnl.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'eaphnl',
+        'NAME': 'worldbankdb$eaphnl',
         'USER': 'worldbankdb',
         'PASSWORD': 'w0rldbank',
-        'HOST': 'localhost',
+        'HOST': 'mysql.server',
         'PORT': 3306,
     }
 }
