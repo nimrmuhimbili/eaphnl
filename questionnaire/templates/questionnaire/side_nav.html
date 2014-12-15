@@ -13,7 +13,7 @@
                     <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">{{ user.username }}</strong>
                      </span> <span class="text-muted text-xs block">
                         {% if user.is_superuser %}
-                            System Administrator
+                            Administrator
                         {% else %}
                             {{ user.groups.all.0 }}
                         {% endif %}
