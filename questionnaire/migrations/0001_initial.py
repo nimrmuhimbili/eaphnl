@@ -35,11 +35,20 @@ class Migration(migrations.Migration):
             bases=(models.Model,),
         ),
         migrations.CreateModel(
+            name='FieldConstraint',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
             name='FieldEntry',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('field_id', models.IntegerField()),
-                ('response', models.CharField(max_length=2000)),
+                ('response', models.CharField(max_length=2000, null=True, blank=True)),
             ],
             options={
                 'verbose_name': 'Field entry',
@@ -76,6 +85,17 @@ class Migration(migrations.Migration):
             options={
                 'verbose_name': 'Form entry',
                 'verbose_name_plural': 'Form entries',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Report',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('title', models.CharField(max_length=100)),
+                ('slug', models.SlugField(unique=True, max_length=200, editable=False)),
+            ],
+            options={
             },
             bases=(models.Model,),
         ),

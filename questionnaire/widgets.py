@@ -2,7 +2,7 @@ from django import forms
 from django.forms.utils import flatatt
 from django.utils.html import force_text, format_html
 
-from playground import settings
+from eaphnl import settings
 
 
 class DateAddonWidget(forms.DateInput):
