@@ -1,0 +1,45 @@
+{% extends 'questionnaire/base.html' %}
+
+{% block content %}
+    <div class="col-lg-12 animated fadeInRight">
+        <div class="ibox float-e-margins">
+
+                <div class="ibox-title">
+                    <h5 class="text-muted">{{ form.title }} Entries</h5>
+                </div>
+                <div class="ibox-content">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-sm-12">
+                                 <input type="submit" class="btn btn-primary pull-right" name="export" value="Export CSV" style="font-size: 10px">
+                            </div>
+                        </div>
+                        {% for row in entries_form.rows %}
+                            {% if forloop.first %}
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Entry ID</th>
+                                            {% for column in entries_form.columns %}
+                                                <th>{{ column }}</th>
+                                            {% endfor %}
+                                        </tr>
+                                    </thead>
+                            {% endif %}
+                                    <tbody>
+                                        <tr>
+                                            {% for field in row %}
+                                                <td>{{ field }}</td>
+                                            {% endfor %}
+                                        </tr>
+                                    </tbody>
+                            {% if forloop.last %}
+                                 </table>
+                            {% endif %}
+                        {% endfor %}
+                    </form>
+                </div>
+        </div>
+    </div>
+{% endblock %}

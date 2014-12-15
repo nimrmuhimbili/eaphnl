@@ -1,0 +1,74 @@
+{% extends 'questionnaire/base.html' %}
+{% load static from staticfiles %}
+{% load mathfilters %}
+{% load questionnaire_tags %}
+
+{% block actions %}
+    <div class="col-sm-8">
+        <div class="title-action">
+            {% if user.is_super_user or user|is_dm %}
+                <a href="{% url 'update_form' form.pk %}" class="btn btn-primary" style="font-size: 10px">Edit {{ form.title }}</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                    <h5 class="text-center text-muted">{{ form.title }}</h5>
+            </div>
+            <div class="ibox-content">
+                <form role="form" class="" action="{{ action }}" method="post">
+                    {% csrf_token %}
+                    {% for section, rows in entry_form.sections.items %}
+                        <h5>{{ section }}</h5>
+                        {% for row in rows %}
+                            <div class="row">
+                                {% for field in row %}
+                                    {% with numerator=12 denominator=row|length %}
+                                        <div class="form-group col-lg-{{ numerator|intdiv:denominator }}
+                                        {% if field.errors %}has-error has-feedback{% endif %}">
+                                            {{ field.label_tag }}
+                                            {% if field.errors %}
+                                                <span class="hint hint--top hint--error hint--always"
+                                                      data-hint="{% for error in field.errors %} {{ error|escape }} {% endfor %}">
+                                                    {{ field }}
+                                                </span>
+                                            {% else %}
+                                                {{ field }}
+                                            {% endif %}
+                                        </div>
+                                    {% endwith %}
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-lg-10 col-lg-offset-4">
+                                <button class="btn btn-sm btn-primary" type="submit"><strong>Save</strong></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_javascripts %}
+    <script src="{% static 'bootstrap3/js/plugin/bootstrap-datepicker.js' %}"></script>
+    <script>
+        $(document).ready(function(){
+            $('.input-group.date').datepicker({
+               todayBtn: "linked",
+               keyboardNavigation: false,
+               forceParse: false,
+               calendarWeeks: true,
+               autoclose: true
+            });
+        });
+    </script>
+{% endblock %}

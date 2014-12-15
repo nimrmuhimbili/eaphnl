@@ -1,0 +1,76 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mtafiti | {% block title %}{% endblock %}</title>
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{% static 'bootstrap3/css/bootstrap.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'fontawesome/css/font-awesome.min.css' %}" />
+
+        <link rel="stylesheet" href="{% static 'questionnaire/css/custom.css' %}" />
+        <link rel="stylesheet" href="{% static 'questionnaire/css/animate.css' %}" />
+        <link rel="stylesheet" href="{% static 'bootstrap3/css/plugin/datepicker3.css' %}" />
+        <link rel="stylesheet" href="{% static 'questionnaire/css/style.css' %}" />
+        <link rel="stylesheet" href="{% static 'questionnaire/css/hint.min.css' %}" />
+    {% endblock %}
+</head>
+<body>
+
+    <div id="wrapper">
+
+        {% include 'questionnaire/side_nav.html' %}
+
+        <div id="page-wrapper" class="gray-bg">
+
+            <div class="row border-bottom">
+                {% include 'questionnaire/header_nav.html' %}
+            </div>
+
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-sm-4">
+                    <h2>This is main title</h2>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="#">This is</a>
+                        </li>
+                        <li class="active">
+                            <strong>Breadcrumb</strong>
+                        </li>
+                    </ol>
+                </div>
+                {% block actions %}{% endblock %}
+            </div>
+
+            <div class="wrapper wrapper-content">
+                <div class="row">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="pull-right">
+
+                </div>
+                <div>
+                    <strong>Copyright</strong> Mtafiti &copy; 2014-2015
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    {% block javascripts %}
+        <script src="{% static 'jquery/js/jquery-1.11.1.min.js' %}"></script>
+        <script src="{% static 'bootstrap3/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'jquery/js/plugin/jquery.metisMenu.js' %}"></script>
+        <script src="{% static 'jquery/js/plugin/jquery.slimscroll.min.js' %}"></script>
+        <script src="{% static 'questionnaire/js/inspinia.js' %}"></script>
+        <script src="{% static 'questionnaire/js/pace.min.js' %}"></script>
+    {% endblock %}
+    {% block extra_javascripts %}{% endblock %}
+</body>
+</html>

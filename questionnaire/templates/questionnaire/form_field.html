@@ -1,0 +1,112 @@
+{% extends 'questionnaire/base.html' %}
+{% load static from staticfiles %}
+{% load questionnaire_tags %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content mailbox-content">
+                    <div class="file-manager">
+                        <h5>
+                            {{ form_instance.title }}
+                            <a href="{% url 'add_field' form_instance.slug %}">
+                                <span class="btn btn-sm btn-primary">Add Field <i class="fa fa-plus"></i></span>
+                            </a>
+                        </h5>
+                        {% if form_instance.fields.all %}
+                            <ul class="folder-list m-b-md" style="padding: 0">
+                                {% for field in form_instance.fields.all %}
+                                    <li>
+                                        <a href="{{ field.get_absolute_url }}">
+                                            <i class="fa fa-edit"></i> {{ field.label }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 animated fadeInRight">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>
+                        {% if field_form.instance.pk %}
+                            {{ field_form.instance.label }}
+                        {% else %}
+                            New Form Field
+                        {% endif %}
+                    </h5>
+                    {% if field_form.instance.pk %}
+                        <div class="ibox-tools">
+                            <a href="{% url 'delete_field' form_instance.slug field_form.instance.pk %}">
+                                <i class="fa fa-trash-o fa-2x"></i>
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="ibox-content">
+                    <form class="form-horizontal" action="{{ action }}" method="post">
+                        {% csrf_token %}
+                        {% if field_form.errors %}
+                            <div class="badge-warning">
+                                {{ field_form.errors }}
+                            </div>
+                        {% endif %}
+                        {% for hidden in field_form.hidden_fields %}
+                            <div class="hidden">
+                                {{ hidden }}
+                            </div>
+                        {% endfor %}
+                        {% for field in field_form.visible_fields %}
+                                {% if field|field_type:'checkboxinput' %}
+                                    <div class="form-group form-group-sm {% if field.errors %}has-error{% endif %}">
+                                        <div class="col-sm-offset-4 col-sm-8">
+                                            <div class="checkbox i-checks">
+                                                <label>
+                                                    {{ field }} {{ field.label }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <div class="form-group form-group-sm {% if field.errors %}has-error{% endif %}">
+                                        <label for="{{ field.id_for_label }}" class="col-sm-4 control-label">
+                                            {{ field.label }}
+                                        </label>
+                                        <div class="col-sm-8">
+                                            {{ field|addattr:'class:form-control' }}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                        {% endfor %}
+                        <div class="form-group form-group-sm">
+                            <div class="col-sm-8 col-lg-offset-4">
+                                <button type="submit" class="btn btn-primary">Save & Add Another</button>
+                                <button type="submit" class="btn btn-warning">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_javascripts %}
+    <script src="{% static 'bootstrap3/js/bootstrap-datepicker.js' %}"></script>
+    <script src="{% static 'jquery/js/plugin/icheck.min.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+            $('.input-group.date').datepicker({
+                todayBtn: "linked",
+                format: 'yyyy-mm-dd',
+                autoclose: true
+            });
+        });
+    </script>
+{% endblock %}

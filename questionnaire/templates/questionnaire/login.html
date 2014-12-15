@@ -1,0 +1,51 @@
+{% load static from staticfiles %}
+{% load questionnaire_tags %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mtafiti | Login</title>
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{% static 'bootstrap3/css/bootstrap.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'fontawesome/css/font-awesome.min.css' %}" />
+
+        <link rel="stylesheet" href="{% static 'questionnaire/css/animate.css' %}" />
+        <link rel="stylesheet" href="{% static 'questionnaire/css/style.css' %}" />
+    {% endblock %}
+
+</head>
+<body class="gray-bg">
+    <div class="middle-box text-center loginscreen animated fadeInDown">
+        <div>
+            <div>
+                <h1 class="logo-name">Mtafiti</h1>
+            </div>
+            <h3>Welcome to Mtafiti</h3>
+            {% block paragraph %}{% endblock %}
+            {% block error %}
+                {% if form.errors %}
+                    <p>Your username and password didn't match. Please try again</p>
+                {% endif %}
+            {% endblock %}
+            <form class="m-t" role="form" action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.username|addattr:'class:form-control,placeholder:Username' }}
+                </div>
+                <div class="form-group">
+                    {{ form.password|addattr:'class:form-control,placeholder:Password' }}
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+                <input type="hidden" name="next" value="{{ next }}" />
+            </form>
+        </div>
+    </div>
+    {% block javascript %}
+        <script type="text/javascript" src="{% static 'jquery/js/jquery-1.11.1.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'bootstrap3/js/bootstrap.min.js' %}"></script>
+    {% endblock %}
+</body>
+</html>

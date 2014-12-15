@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="3033349251">
+    <data-source source="LOCAL" name="Django default" uuid="cc34666a-4635-47f3-9f34-73b01a410327">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1/eaphnl</jdbc-url>
+      <user-name>worldbankdb</user-name>
+      <user-password>dfdddf9adfd8dfc6dfcedfc8dfcbdfc4dfc1</user-password>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

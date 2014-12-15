@@ -1,0 +1,65 @@
+{% extends 'questionnaire/base.html' %}
+{% load questionnaire_tags %}
+
+{% block actions %}
+    <div class="col-sm-8">
+        <div class="title-action">
+            {% if user.is_superuser or user|is_dm %}
+                <a href="{% url 'add_form' %}" class="btn btn-primary" style="font-size: 10px">
+                    New Questionnaire
+                </a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="col-lg-12 animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                {% for form in forms %}
+                    <div class="file-box">
+                        <div class="file">
+                            <a href="{% url 'entries' form.slug %}">
+                                <span class="corner"></span>
+                                <div class="icon">
+                                    <i class="fa fa-folder"></i>
+                                </div>
+                                <div class="file-name">
+                                    {{ form.title }}
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                {% empty %}
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-content">
+                            <p>
+                                <h2 class="text-info">There are no questionnaires for data entry yet.</h2>
+                                {% if user.is_superuser %}
+                                    <a href="{% url 'add_form' %}">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-block btn-info">
+                                                New Questionnaire <span class="fa fa-plus"></span>
+                                            </button>
+                                        </div>
+                                    </a>
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_javascripts %}
+    <script>
+        $(document).ready(function(){
+            $('.file-box').each(function() {
+                animationHover(this, 'pulse');
+            });
+        });
+    </script>
+{% endblock %}

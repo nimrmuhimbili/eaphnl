@@ -1,0 +1,61 @@
+{% extends 'questionnaire/base.html' %}
+{% load questionnaire_tags %}
+
+{% block actions %}
+    <div class="col-sm-8">
+        <div class="title-action">
+            <a href="{% url 'add_questionnaire' form.slug %}" class="btn btn-primary" style="font-size: 10px">
+                New Entry
+            </a>
+            {% if user.is_superuser or user|is_dm %}
+                <a href="{% url 'update_form' form.pk %}" class="btn btn-primary" style="font-size: 10px">
+                    Edit {{ form.title }}
+                </a>
+                <a href="{% url 'export_entries' form.slug %}" class="btn btn-primary" style="font-size: 10px">
+                    View {{ form.title }} data
+                </a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="col-lg-12 animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                {% for entry in entries %}
+                    <div class="file-box">
+                        <div class="file">
+                            <a href="{{ entry.get_absolute_url }}">
+                                <span class="corner"></span>
+                                <div class="icon">
+                                    <i class="fa fa-file"></i>
+                                </div>
+                                <div class="file-name">
+                                    {{ entry.id }}
+                                    <br />
+                                    <small>Entered: {{ entry.entry_time }}</small>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                {% empty %}
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-content">
+                            <p>
+                                <h2 class="text-info">You have not entered any entry.</h2>
+                                <a href="{% url 'add_questionnaire' form.slug %}">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-block btn-info">
+                                            New Entry <span class="fa fa-plus"></span>
+                                        </button>
+                                    </div>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'questionnaire/base.html' %}
+{% load questionnaire_tags %}
+
+{% block actions %}{% endblock %}
+
+{% block content %}
+    <div class="col-lg-12 animated fadeInRight">
+    <div class="ibox float-e-margins">
+        <div class="ibox-content">
+            <h4>Site Lab Results TB</h4>
+            <p>
+                {{ tab.to_html|safe }}
+            </p>
+        </div>
+    </div>
+    </div>
+{% endblock %}
