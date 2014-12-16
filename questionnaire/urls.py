@@ -14,6 +14,7 @@ urlpatterns = patterns("questionnaire.views",
     url(r"(?P<slug>.*)/fields/(?P<pk>\d+)/$", 'manage_form_field', name='edit_field'),
     url(r"(?P<slug>.*)/fields/(?P<pk>\d+)/delete/$", 'manage_form_field_delete', name='delete_field'),
     url(r"reports/$", 'manage_reports', name='reports'),
-    url(r"accounts/new-user/$", 'create_user', name='create_user'),
+    url(r"accounts/users/new-user/$", 'manage_user', name='create_user'),
+    url(r"accounts/users/(?P<pk>\d+)/edit/$", 'manage_user', name='edit_user'),
     url(r"accounts/users/$", 'manage_users', name='manage_users'),
 )

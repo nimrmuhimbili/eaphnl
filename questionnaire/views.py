@@ -137,13 +137,18 @@ def manage_users(request):
 
 
 @login_required
-def create_user(request):
-    template_name = 'questionnaire/create_user.html'
-    action = reverse('create_user')
-    form = UserProfileForm(request.POST or None)
+def manage_user(request, pk=None):
+    template_name = 'questionnaire/manage_user.html'
+    if pk:
+        user = get_object_or_404(User, pk=pk)
+        action = reverse('edit_user', args=(pk,))
+    else:
+        user = User()
+        action = reverse('create_user')
+    form = UserProfileForm(request.POST or None, instance=user)
     if form.is_valid():
         form.save()
-        return redirect(reverse('forms'))
+        return redirect(reverse('manage_users'))
     return render(request, template_name, {'form': form, 'action': action})
 
 

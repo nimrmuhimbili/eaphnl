@@ -27,6 +27,7 @@
                                     <th>Email</th>
                                     <th>Username</th>
                                     <th>Role</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                     {% endif %}
@@ -39,10 +40,22 @@
                             <td>{{ user.username }}</td>
                             <td>
                                 {% if user.is_superuser %}
-                                    System Administrator
+                                    Administrator
                                 {% else %}
                                     {{ user.groups.all.0 }}
                                 {% endif %}
+                            </td>
+                            <td>
+                                <div class="btn-group">
+                                    <a class="btn btn-default" href="{% url 'edit_user' user.pk %}">
+                                        <span class="fa fa-edit"></span>
+                                    </a>
+                                    {% if not user.is_superuser %}
+                                        <a class="btn btn-danger" href="#">
+                                            <span class="fa fa-trash-o"></span>
+                                        </a>
+                                    {% endif %}
+                                </div>
                             </td>
                         </tr>
                     </tbody>
