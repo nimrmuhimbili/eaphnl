@@ -23,26 +23,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/questionnaire/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1690" max-vertical-offset="2310">
-              <caret line="143" column="30" selection-start-line="143" selection-start-column="30" selection-end-line="143" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.8548387" vertical-offset="1720" max-vertical-offset="2340">
+              <caret line="157" column="41" selection-start-line="157" selection-start-column="41" selection-end-line="157" selection-end-column="41" />
               <folding>
-                <element signature="e#0#22#0" expanded="true" />
-                <element signature="e#585#640#0" expanded="false" />
-                <element signature="e#690#830#0" expanded="false" />
-                <element signature="e#4775#4915#0" expanded="false" />
-                <element signature="e#5485#5937#0" expanded="false" />
+                <element signature="e#587#642#0" expanded="false" />
+                <element signature="e#692#832#0" expanded="false" />
+                <element signature="e#4777#4917#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="manage_users.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="manage_users.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/questionnaire/templates/questionnaire/manage_users.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.68456376" vertical-offset="417" max-vertical-offset="1110">
+            <state vertical-scroll-proportion="-34.375" vertical-offset="0" max-vertical-offset="1110">
               <caret line="55" column="44" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
               <folding />
             </state>
@@ -54,6 +52,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
               <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="report.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/questionnaire/templates/questionnaire/report.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="300">
+              <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -78,8 +86,9 @@
         <option value="$PROJECT_DIR$/questionnaire/templates/questionnaire/manage_user.html" />
         <option value="$PROJECT_DIR$/eaphnl/settings.py" />
         <option value="$PROJECT_DIR$/questionnaire/urls.py" />
-        <option value="$PROJECT_DIR$/questionnaire/views.py" />
         <option value="$PROJECT_DIR$/questionnaire/templates/questionnaire/manage_users.html" />
+        <option value="$PROJECT_DIR$/questionnaire/templates/questionnaire/report.html" />
+        <option value="$PROJECT_DIR$/questionnaire/views.py" />
       </list>
     </option>
   </component>
@@ -556,6 +565,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/questionnaire/templates/questionnaire/manage_users.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-34.375" vertical-offset="0" max-vertical-offset="1110">
+          <caret line="55" column="44" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/questionnaire/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
@@ -564,25 +581,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/questionnaire/views.py">
+    <entry file="file://$PROJECT_DIR$/questionnaire/templates/questionnaire/report.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1690" max-vertical-offset="2310">
-          <caret line="143" column="30" selection-start-line="143" selection-start-column="30" selection-end-line="143" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-            <element signature="e#585#640#0" expanded="false" />
-            <element signature="e#690#830#0" expanded="false" />
-            <element signature="e#4775#4915#0" expanded="false" />
-            <element signature="e#5485#5937#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="300">
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/questionnaire/templates/questionnaire/manage_users.html">
+    <entry file="file://$PROJECT_DIR$/questionnaire/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68456376" vertical-offset="417" max-vertical-offset="1110">
-          <caret line="55" column="44" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
-          <folding />
+        <state vertical-scroll-proportion="0.8548387" vertical-offset="1720" max-vertical-offset="2340">
+          <caret line="157" column="41" selection-start-line="157" selection-start-column="41" selection-end-line="157" selection-end-column="41" />
+          <folding>
+            <element signature="e#587#642#0" expanded="false" />
+            <element signature="e#692#832#0" expanded="false" />
+            <element signature="e#4777#4917#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

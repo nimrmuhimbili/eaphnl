@@ -1,5 +1,5 @@
 from csv import writer
-import pandas
+# import pandas
 
 from django.shortcuts import render, render_to_response, redirect, get_object_or_404
 from django.core.urlresolvers import reverse
@@ -155,13 +155,4 @@ def manage_user(request, pk=None):
 @login_required
 def manage_reports(request):
     template_name = 'questionnaire/report.html'
-    form = get_object_or_404(Form, slug='sputum-shipment-form')
-    entries = EntriesForm(form, request)
-    data = {}
-    idx = 1
-    for col in entries.columns():
-        data[col] = [rw[idx] for rw in entries.rows()]
-        idx += 1
-    df = pandas.DataFrame(data)
-    tab = df.pivot_table('patient_id', rows='site_result', cols='sex', aggfunc=len)
-    return render(request, template_name, {'tab': tab})
+    return render(request, template_name)
