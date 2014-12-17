@@ -4,13 +4,17 @@
 {% block actions %}
     <div class="col-sm-8">
         <div class="title-action">
-            <a href="{% url 'add_questionnaire' form.slug %}" class="btn btn-primary" style="font-size: 10px">
-                New Entry
-            </a>
+            {% if not user|is_pi %}
+                <a href="{% url 'add_questionnaire' form.slug %}" class="btn btn-primary" style="font-size: 10px">
+                    New Entry
+                </a>
+            {% endif %}
             {% if user.is_superuser or user|is_dm %}
                 <a href="{% url 'update_form' form.pk %}" class="btn btn-primary" style="font-size: 10px">
                     Edit {{ form.title }}
                 </a>
+            {% endif %}
+            {% if not user|is_clerk %}
                 <a href="{% url 'export_entries' form.slug %}" class="btn btn-primary" style="font-size: 10px">
                     View {{ form.title }} data
                 </a>
@@ -43,6 +47,7 @@
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
                             <p>
+                                {% if not user|is_pi %}
                                 <h2 class="text-info">You have not entered any entry.</h2>
                                 <a href="{% url 'add_questionnaire' form.slug %}">
                                     <div class="btn-group">
@@ -51,6 +56,9 @@
                                         </button>
                                     </div>
                                 </a>
+                                {% else %}
+                                    No data has been entered
+                                {% endif %}
                             </p>
                         </div>
                     </div>

@@ -39,3 +39,8 @@ def is_data_manager(user):
 @register.filter(name='is_pi')
 def is_principal_investigator(user):
     return user.groups.filter(name='Principal Investigator').exists()
+
+
+@register.filter(name='is_clerk')
+def is_data_clerk(user):
+    return user.groups.filter(name='Data Clerk').exists()

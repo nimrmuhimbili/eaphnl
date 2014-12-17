@@ -53,6 +53,9 @@ class Form(models.Model):
     def get_absolute_url(self):
         return reverse('add_questionnaire', kwargs={'slug': self.slug})
 
+    def is_empty(self):
+        return not self.entries.all()
+
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self)

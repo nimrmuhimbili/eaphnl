@@ -5,9 +5,12 @@
         <div class="ibox float-e-margins">
 
                 <div class="ibox-title">
-                    <h5 class="text-muted">{{ form.title }} Entries</h5>
+                    <h5 class="text-muted">{{ form.title }} Data</h5>
                 </div>
                 <div class="ibox-content">
+                    {% if form.is_empty %}
+                        <p>{{ form.title }} has no data</p>
+                    {% else %}
                     <form method="post">
                         {% csrf_token %}
                         <div class="row">
@@ -39,6 +42,7 @@
                             {% endif %}
                         {% endfor %}
                     </form>
+                    {% endif %}
                 </div>
         </div>
     </div>
