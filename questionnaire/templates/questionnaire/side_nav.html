@@ -32,14 +32,14 @@
             </li>
             <li>
                 <a href="{% url 'forms' %}"><i class="fa fa-th-large"></i>
-                    <span class="nav-label">Dashboard</span> <span class="fa arrow"></span>
+                    <span class="nav-label">Home</span> <span class="fa arrow"></span>
                 </a>
             </li>
 
             {% if user.is_superuser or user|is_dm or user|is_pi %}
                 <li>
                     <a href="{% url 'reports' %}"><i class="fa fa-folder"></i>
-                        <span class="nav-label">Reports </span><span class="fa arrow"></span>
+                        <span class="nav-label">View Reports </span><span class="fa arrow"></span>
                     </a>
                 </li>
             {% endif %}
@@ -55,7 +55,7 @@
                 </li> -->
                 <li>
                     <a href="{% url 'manage_users' %}"><i class="fa fa-users"></i>
-                        <span class="nav-label">Users </span><span class="fa arrow"></span>
+                        <span class="nav-label">Manage Users </span><span class="fa arrow"></span>
                     </a>
                     <!-- <ul class="nav nav-second-level">
                         <li><a href="{% url 'create_user' %}">New User</a></li>

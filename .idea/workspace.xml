@@ -23,28 +23,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="side_nav.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/questionnaire/templates/questionnaire/side_nav.html">
+      <file leaf-file-name="forms.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/questionnaire/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="1110">
-              <caret line="9" column="98" selection-start-line="9" selection-start-column="98" selection-end-line="9" selection-end-column="98" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+              <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+              <folding>
+                <element signature="e#578#721#0" expanded="false" />
+                <element signature="e#763#950#0" expanded="false" />
+                <element signature="e#1090#5593#0" expanded="false" />
+                <element signature="e#5632#8675#0" expanded="false" />
+                <element signature="e#8722#9166#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/questionnaire/models.py">
+      <file leaf-file-name="side_nav.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/questionnaire/templates/questionnaire/side_nav.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5596774" vertical-offset="388" max-vertical-offset="1140">
-              <caret line="56" column="37" selection-start-line="56" selection-start-column="37" selection-end-line="56" selection-end-column="37" />
-              <folding>
-                <element signature="e#1758#3778#0" expanded="false" />
-                <element signature="e#3822#3826#0" expanded="false" />
-                <element signature="e#3864#4324#0" expanded="false" />
-                <element signature="e#4363#4650#0" expanded="false" />
-                <element signature="e#4685#4798#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="0.7483221" vertical-offset="409" max-vertical-offset="1110">
+              <caret line="57" column="55" selection-start-line="57" selection-start-column="55" selection-end-line="57" selection-end-column="55" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -69,12 +69,12 @@
         <option value="$PROJECT_DIR$/questionnaire/urls.py" />
         <option value="$PROJECT_DIR$/questionnaire/templates/questionnaire/manage_users.html" />
         <option value="$PROJECT_DIR$/questionnaire/views.py" />
-        <option value="$PROJECT_DIR$/questionnaire/templates/questionnaire/side_nav.html" />
         <option value="$PROJECT_DIR$/questionnaire/templatetags/questionnaire_tags.py" />
         <option value="$PROJECT_DIR$/questionnaire/templates/questionnaire/manage_entries.html" />
         <option value="$PROJECT_DIR$/questionnaire/templates/questionnaire/report.html" />
-        <option value="$PROJECT_DIR$/questionnaire/models.py" />
         <option value="$PROJECT_DIR$/questionnaire/templates/questionnaire/manage_exports.html" />
+        <option value="$PROJECT_DIR$/questionnaire/models.py" />
+        <option value="$PROJECT_DIR$/questionnaire/templates/questionnaire/side_nav.html" />
       </list>
     </option>
   </component>
@@ -156,25 +156,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templatetags" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="eaphnl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="eaphnl" />
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="questionnaire" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -197,13 +183,18 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="options.lastSelected" value="appearance" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="recentsLimit" value="5" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings />
+    </option>
   </component>
   <component name="RunManager" selected="Django server.eaphnl">
     <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
@@ -475,11 +466,13 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2175">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="e#533#537#0" expanded="false" />
+            <element signature="e#617#734#0" expanded="false" />
+            <element signature="e#767#1724#0" expanded="false" />
             <element signature="e#1758#3778#0" expanded="false" />
             <element signature="e#3822#3826#0" expanded="false" />
             <element signature="e#3864#4324#0" expanded="false" />
             <element signature="e#4363#4650#0" expanded="false" />
-            <element signature="e#4685#4798#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -497,11 +490,13 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="2175">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="e#533#537#0" expanded="false" />
+            <element signature="e#617#734#0" expanded="false" />
+            <element signature="e#767#1724#0" expanded="false" />
             <element signature="e#1758#3778#0" expanded="false" />
             <element signature="e#3822#3826#0" expanded="false" />
             <element signature="e#3864#4324#0" expanded="false" />
             <element signature="e#4363#4650#0" expanded="false" />
-            <element signature="e#4685#4798#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -584,14 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eaphnl/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5354839" vertical-offset="643" max-vertical-offset="1995">
-          <caret line="65" column="35" selection-start-line="65" selection-start-column="35" selection-end-line="65" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/questionnaire/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.41129032" vertical-offset="0" max-vertical-offset="620">
@@ -603,14 +590,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8548387" vertical-offset="1825" max-vertical-offset="2445">
           <caret line="157" column="41" selection-start-line="157" selection-start-column="41" selection-end-line="157" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/questionnaire/templates/questionnaire/side_nav.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="1110">
-          <caret line="9" column="98" selection-start-line="9" selection-start-column="98" selection-end-line="9" selection-end-column="98" />
           <folding />
         </state>
       </provider>
@@ -647,17 +626,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/eaphnl/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4870968" vertical-offset="53" max-vertical-offset="1995">
+          <caret line="65" column="35" selection-start-line="65" selection-start-column="35" selection-end-line="65" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/questionnaire/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5596774" vertical-offset="388" max-vertical-offset="1140">
-          <caret line="56" column="37" selection-start-line="56" selection-start-column="37" selection-end-line="56" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.88225806" vertical-offset="53" max-vertical-offset="705">
+          <caret line="148" column="72" selection-start-line="146" selection-start-column="6" selection-end-line="148" selection-end-column="72" />
           <folding>
+            <element signature="e#533#537#0" expanded="false" />
+            <element signature="e#617#734#0" expanded="false" />
+            <element signature="e#767#1724#0" expanded="false" />
             <element signature="e#1758#3778#0" expanded="false" />
             <element signature="e#3822#3826#0" expanded="false" />
             <element signature="e#3864#4324#0" expanded="false" />
             <element signature="e#4363#4650#0" expanded="false" />
-            <element signature="e#4685#4798#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/questionnaire/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+          <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+          <folding>
+            <element signature="e#578#721#0" expanded="false" />
+            <element signature="e#763#950#0" expanded="false" />
+            <element signature="e#1090#5593#0" expanded="false" />
+            <element signature="e#5632#8675#0" expanded="false" />
+            <element signature="e#8722#9166#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/questionnaire/templates/questionnaire/side_nav.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7483221" vertical-offset="409" max-vertical-offset="1110">
+          <caret line="57" column="55" selection-start-line="57" selection-start-column="55" selection-end-line="57" selection-end-column="55" />
+          <folding />
         </state>
       </provider>
     </entry>
