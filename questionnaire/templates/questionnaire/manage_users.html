@@ -2,6 +2,15 @@
 {% load static from staticfiles %}
 {% load questionnaire_tags %}
 
+{% block breadcrumbs-heading %}<h2>Manage Users</h2>{% endblock %}
+
+{% block breadcrumbs %}
+    {{ block.super }}
+    <li class="active">
+        <strong>Manage Users</strong>
+    </li>
+{% endblock %}
+
 {% block actions %}{% endblock %}
 
 {% block content %}

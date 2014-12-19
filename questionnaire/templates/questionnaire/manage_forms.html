@@ -1,6 +1,15 @@
 {% extends 'questionnaire/base.html' %}
 {% load questionnaire_tags %}
 
+{% block breadcrumbs-heading %}<h2>Questionnaires</h2>{% endblock %}
+
+{% block breadcrumbs %}
+    {{ block.super }}
+    <li class="active">
+        <strong>Questionnaires</strong>
+    </li>
+{% endblock %}
+
 {% block actions %}
     <div class="col-sm-8">
         <div class="title-action">

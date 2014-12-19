@@ -1,6 +1,15 @@
 {% extends 'questionnaire/base.html' %}
 {% load questionnaire_tags %}
 
+{% block breadcrumbs-heading %}<h2>{{ form.title }} Data</h2>{% endblock %}
+
+{% block breadcrumbs %}
+    {{ block.super }}
+    <li class="active">
+        <strong>{{ form.title }} Data</strong>
+    </li>
+{% endblock %}
+
 {% block actions %}
     <div class="col-sm-8">
         <div class="title-action">
@@ -48,7 +57,7 @@
                         <div class="ibox-content">
                             <p>
                                 {% if not user|is_pi %}
-                                <h2 class="text-info">You have not entered any entry.</h2>
+                                <h2 class="text-info">You have not entered any data.</h2>
                                 <a href="{% url 'add_questionnaire' form.slug %}">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-block btn-info">

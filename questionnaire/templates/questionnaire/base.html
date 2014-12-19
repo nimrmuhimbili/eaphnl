@@ -31,14 +31,18 @@
 
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-sm-4">
-                    <h2>This is main title</h2>
+                    {% block breadcrumbs-heading %}<h2>This is main title</h2>{% endblock %}
                     <ol class="breadcrumb">
-                        <li>
-                            <a href="#">This is</a>
-                        </li>
-                        <li class="active">
-                            <strong>Breadcrumb</strong>
-                        </li>
+                        {% block breadcrumbs %}
+                            <li>
+                                <a href="#">Home</a>
+                            </li>
+                            <!--
+                            <li class="active">
+                                <strong>Breadcrumb</strong>
+                            </li>
+                            -->
+                        {% endblock %}
                     </ol>
                 </div>
                 {% block actions %}{% endblock %}
