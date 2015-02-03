@@ -153,6 +153,14 @@ def manage_user(request, pk=None):
 
 
 @login_required
+def manage_user_delete(request, pk=None):
+    user = User.objects.get(pk=pk)
+    if user:
+        user.delete()
+        return redirect(reverse('manage_users'))
+
+
+@login_required
 def manage_reports(request):
     template_name = 'questionnaire/report.html'
     return render(request, template_name)

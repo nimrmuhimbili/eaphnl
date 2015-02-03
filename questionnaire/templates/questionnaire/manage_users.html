@@ -60,7 +60,7 @@
                                         <span class="fa fa-edit"></span>
                                     </a>
                                     {% if not user.is_superuser %}
-                                        <a class="btn btn-danger" href="#">
+                                        <a class="btn btn-danger" href="{% url 'delete_user' user.pk %}">
                                             <span class="fa fa-trash-o"></span>
                                         </a>
                                     {% endif %}

@@ -16,5 +16,6 @@ urlpatterns = patterns("questionnaire.views",
     url(r"reports/$", 'manage_reports', name='reports'),
     url(r"accounts/users/new-user/$", 'manage_user', name='create_user'),
     url(r"accounts/users/(?P<pk>\d+)/edit/$", 'manage_user', name='edit_user'),
+    url(r"accounts/users/(?P<pk>\d+)/delete/$", 'manage_user_delete', name='delete_user'),
     url(r"accounts/users/$", 'manage_users', name='manage_users'),
 )
