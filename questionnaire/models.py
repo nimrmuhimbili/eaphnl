@@ -75,6 +75,7 @@ class Field(models.Model):
     help_text = models.CharField(max_length=200, null=True, blank=True)
     section = models.CharField(max_length=100, null=True, blank=True)
     required = models.BooleanField(default=True)
+    unique = models.BooleanField(default=False)
 
     class Meta:
         ordering = ('order',)

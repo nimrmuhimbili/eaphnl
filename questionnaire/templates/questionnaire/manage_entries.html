@@ -36,18 +36,18 @@
     <div class="col-lg-12 animated fadeInRight">
         <div class="row">
             <div class="col-lg-12">
-                {% for entry in entries %}
+                {% for url, entry, entry_time in entries %}
                     <div class="file-box">
                         <div class="file">
-                            <a href="{{ entry.get_absolute_url }}">
+                            <a href="{{ url }}">
                                 <span class="corner"></span>
                                 <div class="icon">
                                     <i class="fa fa-file"></i>
                                 </div>
                                 <div class="file-name">
-                                    {{ entry.id }}
+                                    {{ entry }}
                                     <br />
-                                    <small>Entered: {{ entry.entry_time }}</small>
+                                    <small>Entered: {{ entry_time }}</small>
                                 </div>
                             </a>
                         </div>

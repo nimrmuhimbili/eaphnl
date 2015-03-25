@@ -33,7 +33,25 @@ def manage_entries(request, slug=None):
             entries = form.entries.all()
         else:
             entries = form.entries.filter(user=request.user)
-        return render(request, template_path, {'form': form, 'entries': entries})
+        entries_ids = []
+        for entry in entries:
+            for field, field_entry in zip(form.fields.all(), entry.fields.all()):
+                if field.unique:
+                    entries_ids.append((entry.get_absolute_url(), field_entry.response, entry.entry_time))
+        return render(request, template_path, {'form': form, 'entries': entries_ids})
+
+
+@login_required
+def search_entry(request):
+    template_path = 'questionnaire/search_entries.html'
+    if 'q' in request.GET and request.GET['q']:
+        form_number = request.GET['q']
+        results = []
+        for form in Form.objects.all():
+            if form.entries.filter(fields__response=form_number):
+                results.extend(form.entries.filter(fields__response=form_number))
+                break
+        return render(request, template_path, {'results': results, 'form_number': form_number})
 
 
 @login_required

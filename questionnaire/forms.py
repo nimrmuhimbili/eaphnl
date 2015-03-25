@@ -58,6 +58,7 @@ class FormEntryForm(forms.ModelForm):
         # values for using as initial data.
         field_entries = {}
         if kwargs.get('instance'):
+            self.entry_fields = kwargs['instance'].fields.values_list('field_id', flat=True)
             for field_entry in kwargs['instance'].fields.all():
                 field_entries[field_entry.field_id] = field_entry.response
         super(FormEntryForm, self).__init__(*args, **kwargs)
@@ -125,6 +126,20 @@ class FormEntryForm(forms.ModelForm):
         for section, section_fields in sections:
             section_dict[section] = self.rows(section_fields)
         return section_dict
+
+    def clean(self):
+        cleaned_data = self.cleaned_data
+        for field in self.form_fields:
+            if field.unique:
+                field_key = field.name
+                response = cleaned_data.get(field_key)
+                qs = self.field_entry_model.objects.filter(response=response)
+                if field.id in self.entry_fields:
+                    qs = qs.exclude(field_id=field.id)
+                if qs.count() > 0:
+                    err_msg = "This field must be unique."
+                    self._errors[field_key] = self.error_class([err_msg])
+        return cleaned_data
 
     def save(self, **kwargs):
         entry = super(FormEntryForm, self).save(commit=False)
