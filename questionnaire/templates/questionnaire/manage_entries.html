@@ -27,6 +27,9 @@
                 <a href="{% url 'export_entries' form.slug %}" class="btn btn-primary" style="font-size: 10px">
                     View {{ form.title }} data
                 </a>
+                <a href="{% url 'import_entries' form.slug %}" class="btn btn-primary" style="font-size: 10px">
+                    Import {{ form.title }} data
+                </a>
             {% endif %}
         </div>
     </div>

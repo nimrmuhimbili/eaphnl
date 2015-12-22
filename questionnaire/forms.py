@@ -249,6 +249,10 @@ class EntriesForm(forms.Form):
             yield current_row
 
 
+class ImportEntriesForm(forms.Form):
+    file = forms.FileField()
+
+
 class UserProfileForm(forms.ModelForm):
     group = forms.ModelChoiceField(queryset=Group.objects.all(), required=True)
 

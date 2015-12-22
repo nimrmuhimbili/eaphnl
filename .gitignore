@@ -3,3 +3,4 @@ settings.py
 *.sql~
 *.pyc
 *.pyo
+/.idea/
