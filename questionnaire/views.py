@@ -106,7 +106,7 @@ class UnicodeWriter:
     def writerows(self, rows):
         for row in rows:
             self.writerow(row)
-    return render(request, template_path, {'form': form, 'entries_form': entries_form})
+        return render(request, template_path, {'form': form, 'entries_form': entries_form})
 
 
 @login_required
