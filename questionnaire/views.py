@@ -1,4 +1,5 @@
 from csv import writer
+import csv, codecs, cStringIO
 # import pandas
 
 from django.shortcuts import render, render_to_response, redirect, get_object_or_404
@@ -64,13 +65,43 @@ def manage_exports(request, slug):
         fname = "%s-%s.csv" % (form.slug, slugify(now().ctime()))
         attachment = "attachment; filename=%s" % fname
         response["Content-Disposition"] = attachment
-        csv = writer(response, delimiter=",")
+        csv = UnicodeWriter(response, delimiter=",")
         writerow = csv.writerow
         writerow(entries_form.columns())
         for row in entries_form.rows(csv=True):
             writerow(row)
         return response
     return render(request, template_name, {'form': form, 'entries_form': entries_form})
+	
+	
+class UnicodeWriter:
+    """
+    A CSV writer which will write rows to CSV file "f",
+    which is encoded in the given encoding.
+    """
+
+    def __init__(self, f, dialect=csv.excel, encoding="utf-8", **kwds):
+        # Redirect output to a queue
+        self.queue = cStringIO.StringIO()
+        self.writer = csv.writer(self.queue, dialect=dialect, **kwds)
+        self.stream = f
+        self.encoder = codecs.getincrementalencoder(encoding)()
+
+    def writerow(self, row):
+        self.writer.writerow([s.encode("utf-8") for s in row])
+        # Fetch UTF-8 output from the queue ...
+        data = self.queue.getvalue()
+        data = data.decode("utf-8")
+        # ... and reencode it into the target encoding
+        data = self.encoder.encode(data)
+        # write to the target stream
+        self.stream.write(data)
+        # empty queue
+        self.queue.truncate(0)
+
+    def writerows(self, rows):
+        for row in rows:
+            self.writerow(row)
 
 
 @login_required
