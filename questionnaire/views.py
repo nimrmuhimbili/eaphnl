@@ -1,7 +1,11 @@
-from csv import writer
 import csv, codecs, cStringIO
 # import pandas
+from csv import writer, DictReader
+from questionnaire.utils import UnicodeWriter, UnicodeReader
+# from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
+
+import django
 from django.shortcuts import render, render_to_response, redirect, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
@@ -9,8 +13,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.template.defaultfilters import slugify
 
-from questionnaire.models import Form, FormEntry, Field
-from questionnaire.forms import FormEntryForm, DesignedForm, EntriesForm, FieldForm, UserProfileForm
+from questionnaire.models import Form, FormEntry, Field, FieldEntry
+from questionnaire.forms import FormEntryForm, DesignedForm, EntriesForm, FieldForm, UserProfileForm, ImportEntriesForm
 from questionnaire.utils import now
 
 
@@ -57,7 +61,7 @@ def search_entry(request):
 
 @login_required
 def manage_exports(request, slug):
-    template_name = 'questionnaire/manage_exports.html'
+    template_path = 'questionnaire/manage_exports.html'
     form = get_object_or_404(Form, slug=slug)
     entries_form = EntriesForm(form, request.POST or None)
     if request.POST.get('export'):
@@ -102,6 +106,35 @@ class UnicodeWriter:
     def writerows(self, rows):
         for row in rows:
             self.writerow(row)
+    return render(request, template_path, {'form': form, 'entries_form': entries_form})
+
+
+@login_required
+def manage_imports(request, slug):
+    form = get_object_or_404(Form, slug=slug)
+    import_form = ImportEntriesForm(request.POST or None, request.FILES)
+    if request.POST.get('upload') and request.FILES:
+        # template_path = 'questionnaire/manage_imports.html'
+        if import_form.is_valid():
+            reader = DictReader(request.FILES['file'])
+            for row in reader:
+                entry = FormEntry(form=form, entry_time=now(), user=request.user)
+                entry.save()
+                entry_fields = []
+                for field_name, response in row.items():
+                    field = form.fields.get(name=field_name)
+                    entry_fields.append(FieldEntry(entry=entry, field_id=field.id, response=response))
+                if entry_fields:
+                    if django.VERSION >= (1, 4, 0):
+                        FieldEntry.objects.bulk_create(entry_fields)
+                    else:
+                        for entry_field in entry_fields:
+                            entry_field.save()
+            return redirect(reverse('entries', args=(form.slug,)))
+            # return render(request, template_path, {'form': form, 'reader': reader})
+    else:
+        template_path = 'questionnaire/upload_datafile.html'
+        return render(request, template_path, {'form': form, 'import_form': import_form})
 
 
 @login_required

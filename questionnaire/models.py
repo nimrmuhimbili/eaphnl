@@ -103,7 +103,6 @@ class Field(models.Model):
             fields_after = self.form.fields.filter(order__gte=field.order-1)
             fields_after.update(order=models.F("order") + 1)
 
-
     def delete(self, *args, **kwargs):
         fields_after = self.form.fields.filter(order__gte=self.order)
         fields_after.update(order=models.F("order") - 1)
