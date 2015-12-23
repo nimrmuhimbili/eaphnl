@@ -1,11 +1,11 @@
 {% extends 'questionnaire/base.html' %}
 
-{% block breadcrumbs-heading %}<h2>{{ form.title }} data upload</h2>{% endblock %}
+{% block breadcrumbs-heading %}<h2>{{ form.title }} data import</h2>{% endblock %}
 
 {% block breadcrumbs %}
     {{ block.super }}
     <li class="active">
-        <strong>{{ form.title }} data upload</strong>
+        <strong>{{ form.title }} data import</strong>
     </li>
 {% endblock %}
 
@@ -14,7 +14,7 @@
         <div class="ibox float-e-margins">
 
             <div class="ibox-title">
-                <h5 class="text-muted text-center">{{ form.title }} data upload</h5>
+                <h5 class="text-muted text-center">{{ form.title }} data import</h5>
             </div>
 
             <div class="ibox-content">
@@ -23,7 +23,7 @@
                     <div class="form-group">
                         {{ import_form.file }}
                     </div>
-                    <input type="submit" class="btn btn-primary" name="upload" value="Upload" />
+                    <input type="submit" class="btn btn-primary" name="import" value="Upload" />
                 </form>
             </div>
 
