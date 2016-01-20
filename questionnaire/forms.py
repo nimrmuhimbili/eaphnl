@@ -203,6 +203,7 @@ class EntriesForm(forms.Form):
         fields = [f.name for f in self.form_fields
                   if self.posted_data("field_%s_export" %f.id)
         ]
+        fields += ['Data_Entrant']
         return fields
 
     def rows(self, csv=False):
@@ -225,6 +226,7 @@ class EntriesForm(forms.Form):
         # Loop through each field value ordered by entry, building up each
         # entry as a row.
         current_entry = None
+        current_entry_user = None
         current_row = None
         valid_row = True
         for field_entry in field_entries:
@@ -233,8 +235,10 @@ class EntriesForm(forms.Form):
                 if valid_row and current_row is not None:
                     if not csv:
                         current_row.insert(0, current_entry)
+                        current_row += [current_entry_user]
                     yield current_row
                 current_entry = field_entry.entry_id
+                current_entry_user = field_entry.entry.user
                 current_row = [""]*num_columns
                 valid_row = True
             field_response = field_entry.response or ""
@@ -246,6 +250,7 @@ class EntriesForm(forms.Form):
         if valid_row and current_row is not None:
             if not csv:
                 current_row.insert(0, current_entry)
+                current_row += [current_entry_user]
             yield current_row
 
 
